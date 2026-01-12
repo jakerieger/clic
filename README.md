@@ -4,7 +4,12 @@ clic is a **c**ommand **l**ine **i**nterface application framework for **C**. It
 
 ## Usage
 
-**clic** consists of two files: [cli.h](src/cli.h) and [cli.c](src/cli.c). Simply add these two files to your project and include `cli.h` to start using it.
+**clic** is header-only. Simply download and include [cli.h](cli.h) in your application. You'll also need to define `CLI_IMPLEMENTATION` in at least *one* C file before including `cli.h`.
+
+```c
+#define CLI_IMPLEMENTATION
+#include <cli.h>
+```
 
 > [!NOTE]
 > It's actually recommended to add **clic** as a git submodule so you can pull updates directly in your project without having to replace files or update build system configurations.
@@ -14,6 +19,7 @@ clic is a **c**ommand **l**ine **i**nterface application framework for **C**. It
 This example shows a basic CLI application with no commands and no options.
 
 ```c
+#define CLI_IMPLEMENTATION
 #include <cli.h>
 
 static int do_thing(cli_option** opts, u32 opt_count) {
@@ -36,6 +42,7 @@ int main(int argc, char* argv[]) {
 You can add global options to your application like so:
 
 ```c
+#define CLI_IMPLEMENTATION
 #include <cli.h>
 
 static int do_thing_with_opts(cli_option** opts, u32 opt_count) {
@@ -72,6 +79,7 @@ int main(int argc, char* argv[]) {
 ### Adding commands
 
 ```c
+#define CLI_IMPLEMENTATION
 #include <cli.h>
 
 static int cmd1_action(cli_option** opts, u32 opt_count) {}

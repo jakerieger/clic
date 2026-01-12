@@ -1,6 +1,8 @@
-#include "../src/cli.h"
 #include <time.h>
 #include <ctype.h>
+
+#define CLI_IMPLEMENTATION
+#include "../cli.h"
 
 static i32 cmd_info(cli_option** opts, u32 opt_count) {
     const char* path = NULL;
