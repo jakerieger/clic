@@ -4,15 +4,16 @@ CC = gcc
 CFLAGS = -w -std=gnu11
 LDFLAGS = 
 
-SRC_DIR = src
+SRC_DIR = .
 BUILD_DIR = build
 BIN_DIR = $(BUILD_DIR)/bin
 OBJ_DIR = $(BUILD_DIR)/obj
-EXE_NAME = ccli-test
+EXE_NAME = filetool
 
 TARGET = $(BIN_DIR)/$(EXE_NAME)
 
-SRCS = $(wildcard $(SRC_DIR)/*.c)
+SRCS = $(wildcard $(SRC_DIR)/*.c) \
+					../src/cli.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 ifeq ($(BUILD_TYPE),debug)
